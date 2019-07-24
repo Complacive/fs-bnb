@@ -4,6 +4,7 @@ import { UserService } from '../../services/user.service';
 import { User } from '../../models/user-model'
 import { Listing } from '../../models/listing-model'
 import { ListingService } from '../../services/listing.service'
+import { ListingImageService } from '../../services/listing.img.service'
 
 
 @Component({
@@ -13,35 +14,39 @@ import { ListingService } from '../../services/listing.service'
 })
 export class HomePage {
 
+
   public user = new User();
   public listings: Array <Listing> = [];
-  //public listings: Listing[];
+  public listingImage: Array <any> = [];
+
 
   constructor(
     private navCtrl: NavController,
     private toastCtrl: ToastController,
     private userService: UserService,
-    private listingService: ListingService
+    private listingService: ListingService,
+    private listingImageService: ListingImageService
   ) { 
+
 
     this.user.id = +localStorage.getItem('userId');
     console.log(this.user.id);
 
-    /*
-    const listingCallback = (err, listings) => {
-      if (err) {
-        alert(err.error.message);
-        return;
-      }
-      console.log(listings);
-      this.listings = listings;
-    };
-    */
 
-    //this.listingService.getAllListings(listingCallback);
+    this.listingService.getAll().then((response: any) => {
+      this.listings = response;
+      console.log(this.listings);
+    }).catch(err => console.log(err));
 
-    //const userCallback = ()
+
+    this.listingImageService.getAll().then((response: any) => {
+      this.listingImage = response;
+      console.log(this.listingImage);
+    }).catch(err => console.log(err));
+
+
   }
+
 
 
   logOff() {
