@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>BnB Listings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="showListings">
+    <ion-card *ngFor="let listing of listings">
+      <img src="{{listing.imgUrl}}" />
+      <ion-card-header>
+        <ion-card-subtitle>{{listing.location}}</ion-card-subtitle>
+        <ion-card-title>{{listing.name}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        This can be a description of the listing
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <br>
+
+  <ion-button class="btn btn-primary" (click)="showHideListings()">Show/Hide Listings</ion-button>
+
+</ion-content>
