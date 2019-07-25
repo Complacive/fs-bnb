@@ -14,7 +14,7 @@ module.exports = class Booking {
 
     get() {
         return new Promise((resolve, reject) => {
-            mysqlConn.query("SELECT * FROM booking", (err, res) => {
+            mysqlConn.query("SELECT * FROM bookings", (err, res) => {
                 if (err) {
                     reject(err);
                 } else {
@@ -26,7 +26,7 @@ module.exports = class Booking {
 
     create(newBooking) {
         return new Promise((resolve, reject) => {
-            mysqlConn.query("INSERT INTO booking set ?", newBooking, function (err, res) {
+            mysqlConn.query("INSERT INTO bookings set ?", newBooking, function (err, res) {
                 if (err) {
                     reject(err);
                 } else {
@@ -38,7 +38,7 @@ module.exports = class Booking {
 
     getById(bookingId) {
         return new Promise((resolve, reject) => {
-            mysqlConn.query("Select * from booking where id = ? ", bookingId, function (
+            mysqlConn.query("Select * from bookings where id = ? ", bookingId, function (
                 err,
                 res
             ) {
@@ -55,7 +55,7 @@ module.exports = class Booking {
     updateById(booking, bookingId) {
         return new Promise((resolve, reject) => {
             mysqlConn.query(
-                "UPDATE user SET booking = ? WHERE id = ?",
+                "UPDATE user SET bookings = ? WHERE id = ?",
                 [listing, listingId],
                 function (err, res) {
                     if (err) {
@@ -70,7 +70,7 @@ module.exports = class Booking {
 
     removeById(bookingId) {
         return new Promise((resolve, reject) => {
-            mysqlConn.query("DELETE FROM booking WHERE id = ?", bookingId, function (err, res) {
+            mysqlConn.query("DELETE FROM bookings WHERE id = ?", bookingId, function (err, res) {
                 if (err) {
                     reject(err);
                 } else {

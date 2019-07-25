@@ -16,7 +16,7 @@ export class BookingService {
     private httpClient: HttpClient
   ) { }
 
-  createsBooking(booking: Booking) {
+  create(booking: Booking) {
     return new Promise((resolve, reject) => {
 
       this.httpClient.post('http://localhost:8000/api/booking/create', booking)

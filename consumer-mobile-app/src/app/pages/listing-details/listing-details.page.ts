@@ -49,20 +49,13 @@ export class ListingDetailsPage implements OnInit {
       this.listingLocation = response[0].location;
       this.listingPrice = response[0].price;
       this.listingDescription = response[0].description;
-      //console.log(response);
     }).catch(err => console.log(err));
 
 
     this.listingService.getAll().then((response: any) => {
       response.forEach(listing => {
-        //console.log(listing);
-        //console.log(listing.imgUrl);
-        //console.log(this.listingId);
-        //console.log(listing.id);
         if (this.listingId == listing.id) {
-          //console.log(listing.imgUrl)
           this.listingImageUrl = listing.imgUrl;
-          //console.log(this.listingImageUrl);
         }
       })
     }).catch(err => console.log(err));

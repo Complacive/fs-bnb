@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
+import { NavController, ToastController } from '@ionic/angular';
+import { User } from '../../models/user-model'
+import { Listing } from '../../models/listing-model'
+import { ListingService } from '../../services/listing.service'
+import { BookingService } from '../../services/booking.service'
 
 @Component({
   selector: 'app-book-now',
@@ -7,9 +13,61 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookNowPage implements OnInit {
 
-  constructor() { }
+  public listingId: number;
+  public userId: number;
+
+  public dateFrom: Date;
+  public dateTo: Date;
+  public status: string;
+
+  public listingName: string;
+
+
+  constructor(
+    private navCtrl: NavController,
+    private toastCtrl: ToastController,
+    private userService: UserService,
+    private listingService: ListingService,
+    private bookingService: BookingService,
+  ) { 
+
+    var urlParams = new URLSearchParams(location.search);
+    this.listingId = +urlParams.get('listingId');
+    this.userId = +localStorage.getItem("userId");
+    console.log(this.listingId);
+    console.log(this.userId);
+
+    this.listingService.getById(this.listingId).then((response: any) => {
+      this.listingName = response[0].name;
+    }).catch(err => console.log(err));
+  }
 
   ngOnInit() {
+  }
+
+
+  bookNow() {
+    const booking = {
+      listingId: this.listingId,
+      userId: this.userId,
+      dateFrom: this.dateFrom,
+      dateTo: this.dateTo,
+      status: "pending"
+    }
+    this.bookingService.create(booking).then(res => {
+      //const testId = localStorage.getItem('userId');
+      //console.log(testId);
+
+      this.navCtrl.navigateForward('home', {
+        queryParams:  {
+          user: res
+        }
+      });
+
+    }).catch (err => {
+      this.presentAlert(err);
+    });
+
   }
 
 }

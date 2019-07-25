@@ -19,7 +19,7 @@ router.post('/create', function (req, res) {
     Booking.prototype
         .create(req.body)
         .then(bookings => {
-            res.send(lbookings);
+            res.send(bookings);
         })
         .catch(err => {
             res.status(400).send(err);
