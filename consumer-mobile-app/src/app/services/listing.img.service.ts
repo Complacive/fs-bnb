@@ -47,10 +47,25 @@ export class ListingImageService {
     });
   }
 
-  getById(listingImageId: number) {
+  getById(Id: number) {
     return new Promise((resolve, reject) => {
       this.httpClient
-        .post('http://localhost:5000/api/listingUrl/getById', { "id": listingImageId })
+        .post('http://localhost:5000/api/listingUrl/getById', { "id": Id })
+        .subscribe(
+          (response) => {
+            resolve(response);
+          },
+          (err) => {
+            reject(err);
+          }
+        )
+    });
+  }
+
+  getImage(listingImageId: number) {
+    return new Promise((resolve, reject) => {
+      this.httpClient
+        .post('http://localhost:5000/api/listingUrl/getImage', { "listingImgId": listingImageId })
         .subscribe(
           (response) => {
             resolve(response);

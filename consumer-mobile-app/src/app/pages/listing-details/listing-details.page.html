@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>listing-details</ion-title>
+    <ion-title>Listing Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <div class="ion-padding" align="center">
+    <div>
+      <ion-button color="danger" (click)="navBackToExplore()">Back To Explore Listings</ion-button>
+    </div>
+
+    <div>
+      <ion-button color="danger" (click)="navToBooking()">{{listingName}} Booking Information </ion-button>
+    </div>
+
+    <p>Property Name: {{listingName}}</p>
+    <p>Property Location: {{listingLocation}}</p>
+    <p>Property Description: {{listingDescription}}</p>
+    <p>Property Price: R{{listingPrice}}/night</p>
+  </div>
+
+  <ion-slides pager="true">
+    <ion-slide *ngFor="let img of listingImageUrl">
+      <img src="{{img}}" />
+    </ion-slide>
+  </ion-slides>
 
 </ion-content>

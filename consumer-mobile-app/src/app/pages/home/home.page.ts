@@ -14,11 +14,8 @@ import { ListingImageService } from '../../services/listing.img.service'
 })
 export class HomePage {
 
-
   public user = new User();
-  public listings: Array <Listing> = [];
-  public listingImage: Array <any> = [];
-
+  public listings: Array<Listing> = [];
 
   constructor(
     private navCtrl: NavController,
@@ -26,28 +23,17 @@ export class HomePage {
     private userService: UserService,
     private listingService: ListingService,
     private listingImageService: ListingImageService
-  ) { 
-
+  ) {
 
     this.user.id = +localStorage.getItem('userId');
     console.log(this.user.id);
-
 
     this.listingService.getAll().then((response: any) => {
       this.listings = response;
       console.log(this.listings);
     }).catch(err => console.log(err));
 
-
-    this.listingImageService.getAll().then((response: any) => {
-      this.listingImage = response;
-      console.log(this.listingImage);
-    }).catch(err => console.log(err));
-
-
   }
-
-
 
   logOff() {
     this.navCtrl.navigateBack('login')
@@ -57,11 +43,11 @@ export class HomePage {
     this.navCtrl.navigateForward('profile');
   }
 
-  navToListingDetails() {
+  navToListingDetails(listing) {
     this.navCtrl.navigateForward('listing-details', {
-      queryParams : {
-        //listingId: list.id,
-        //userId: userid
+      queryParams: {
+        listingId: listing.id,
+        userId: localStorage.getItem("userId")
       }
     });
   }

@@ -24,6 +24,21 @@ module.exports = class ListingImgUrl {
     });
   };
 
+  getImage(listingImageId) {
+    return new Promise((resolve, reject) => {
+      mysqlConn.query("Select * from listing_imgurl_mapping where listingImgId  = ? ", listingImageId, function (
+        err,
+        res
+      ) {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(res);
+        }
+      });
+    });
+  };
+
   create(newImgListingUrl) {
     return new Promise((resolve, reject) => {
       mysqlConn.query("INSERT INTO listing_imgurl_mapping set ?", newImgListingUrl, function (err, res) {

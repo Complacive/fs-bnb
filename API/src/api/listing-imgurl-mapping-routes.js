@@ -15,6 +15,17 @@ router.get('/get', function (req, res) {
         });
 });
 
+router.post('/getImage', function (req, res) {
+    listingUrl.prototype
+        .getImage(req.body.listingImgId)
+        .then(images => {
+            res.send(images);
+        })
+        .catch(err => {
+            res.status(400).send(err);
+        });
+});
+
 router.post('/create', function (req, res) {
     listingUrl.prototype
         .create(req.body)

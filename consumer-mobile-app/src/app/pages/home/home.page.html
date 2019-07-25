@@ -6,36 +6,39 @@
 
 
 <ion-content>
+  <div class="ion-padding" align="center">
+    <div>
+      <ion-button color="danger" (click)="logOff()">Log Out</ion-button>
+    </div>
 
-  <ion-button color="danger" (click)="logOff()">Log Out</ion-button>
-  <ion-button color="danger" (click)="navToProfile()">Profile</ion-button>
-  
-  <!--
-  <div>
-    <ion-card>
+    <div>
+      <ion-button color="danger" (click)="navToProfile()">Profile</ion-button>
+    </div>
+
+    <ion-card *ngFor="let listing of listings" (click)="navToListingDetails(listing)">
       <ion-slides pager="true">
-        <ion-slide *ngFor="let img or listing.imgUrl">
+        <ion-slide *ngFor="let img of listing.imgUrl">
           <img src="{{img}}" />
         </ion-slide>
       </ion-slides>
+
       <ion-card-header>
         <ion-grid>
           <ion-row>
-            <ion-col push-md align-self: center>
-              <ion-card-subtitle>{{listing.location</ion-card-subtitle>
-            <ion-card-title>{{listing.name}}</ion-card-title>
-            </ion-col>
             <ion-col align-self: center>
+              <ion-card-title>{{listing.name}}</ion-card-title>
+              <ion-card-title>{{listing.location}}</ion-card-title>
               <ion-card-title>R{{listing.price}}/night</ion-card-title>
             </ion-col>
           </ion-row>
         </ion-grid>
-
       </ion-card-header>
-      <ion-card-content>
-        {{listing.description}}
-      </ion-card-content>
+
+      <ion-col push-md align-self: center>
+        <ion-card-title>{{listing.description}}</ion-card-title>
+      </ion-col>
+
     </ion-card>
   </div>
-  -->
+
 </ion-content>
