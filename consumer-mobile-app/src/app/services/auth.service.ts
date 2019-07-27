@@ -32,25 +32,25 @@ export class AuthService {
 
     });
   }
-  
+
   registerUser(newUser) {
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders();
 
-      this.http.post('http://localhost:5000/api/auth/register', newUser, {headers})
-      .subscribe(
-        (response: any) => {
-          localStorage.setItem('userId', response);
-          console.log(response);
-          //console.log('accepting body');
-          resolve(response);
-        },
-        (err) => {
-          console.log('rejecting body');
-          reject(err);
-        }
-      )
+      this.http.post('http://localhost:5000/api/auth/register', newUser, { headers })
+        .subscribe(
+          (response: any) => {
+            localStorage.setItem('userId', response);
+            console.log(response);
+            //console.log('accepting body');
+            resolve(response);
+          },
+          (err) => {
+            console.log('rejecting body');
+            reject(err);
+          }
+        )
     })
   }
-  
+
 }

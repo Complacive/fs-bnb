@@ -1,40 +1,38 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Rental Details</ion-title>
+    <ion-title>Listing Details</ion-title>
   </ion-toolbar>
 </ion-header>
-  
+
 <ion-content>
 
-  <p>Listings Avaliable</p>
-  <p>Listings Rented</p>
-  
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-  
-      <ion-tab-button tab="Existing Rentals">
-        <ion-icon name="pin"></ion-icon>
-        <ion-label>Existing Rentals</ion-label>
-        <ion-badge>6</ion-badge>
-      </ion-tab-button>
-    
-      <ion-tab-button tab="Create Rental">
-        <ion-icon name="add-circle"></ion-icon>
-        <ion-label>Create Rental</ion-label>
-      </ion-tab-button>
-    
-      <ion-tab-button tab="Update Rentals">
-        <ion-icon name="home"></ion-icon>
-        <ion-label>Update Rentals</ion-label>
-      </ion-tab-button>
-    
-      <ion-tab-button tab="View Rental Details">
-        <ion-icon name="book"></ion-icon>
-        <ion-label>View Rental Details</ion-label>
-      </ion-tab-button>
-  
-    </ion-tab-bar>
-  
-  </ion-tabs>
+  <div class="ion-padding" align="center">
+    <div>
+      <ion-button color="danger" (click)="navToBookingRequests()">View Booking Requests</ion-button>
+    </div>
+
+    <div>
+      <ion-button color="danger" (click)="navToEdit()">Edit Listing Details</ion-button>
+    </div>
+
+    <div>
+      <ion-button color="danger" (click)="navToDelete()">Delete Listing</ion-button>
+    </div>
+
+    <div>
+      <ion-button color="danger" (click)="navBackToHome()">Back to Existing Listings</ion-button>
+    </div>
+
+    <p>Property Name: {{listingName}}</p>
+    <p>Property Location: {{listingLocation}}</p>
+    <p>Property Description: {{listingDescription}}</p>
+    <p>Property Price: R{{listingPrice}}/night</p>
+  </div>
+
+  <ion-slides pager="true">
+    <ion-slide *ngFor="let img of listingImageUrl">
+      <img src="{{img}}" />
+    </ion-slide>
+  </ion-slides>
+
 </ion-content>
-  

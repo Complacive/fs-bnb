@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ListingsService } from '../../services/listings.service';
+import { ListingService } from '../../services/listing.service';
 import { Listing } from '../../models/listing-model';
 
 @Component({
@@ -14,7 +14,7 @@ export class ListingsPage implements OnInit {
   public showListings: Boolean = true;
 
   constructor(
-    private listingsService: ListingsService
+    private listingsService: ListingService
   ) {
     //this.listings = this.listingsService.getListItems();
   }

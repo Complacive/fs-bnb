@@ -18,8 +18,8 @@ router.get('/get', function (req, res) {
 router.post('/create', function (req, res) {
     Property.prototype
         .create(req.body)
-        .then(listings => {
-            res.send(listings);
+        .then(listing => {
+            res.json(listing.insertId);     
         })
         .catch(err => {
             res.status(400).send(err);
@@ -37,9 +37,9 @@ router.post('/getById', function (req, res) {
         });
 });
 
-router.post('/updateById', function (req, res) {
+router.patch('/updateById', function (req, res) {
     Property.prototype
-        .updateById(req.body.id)
+        .updateById(req.body.id, req.body)
         .then(listings => {
             res.send(listings);
         })

@@ -1,7 +1,8 @@
 export class ServiceProvider {
-    name: string;
-    lastName: string;
-    email: string;
-    cellPhone: number;
-    numberOfListings: number;
+    
+    public id: number;
+    public firstName: string;
+    public lastName: string;
+    public email: string;
+
 }

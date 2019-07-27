@@ -6,57 +6,28 @@
 
 <ion-content>
   <ion-item>
-    <ion-label position="stacked">Name</ion-label>
-    <ion-input></ion-input>
+    <ion-label position="stacked">Property Name</ion-label>
+    <ion-input type="text" [(ngModel)]="listing.name"></ion-input>
   </ion-item>
 
   <ion-item>
-      <ion-label position="stacked">Property Address</ion-label>
-      <ion-input></ion-input>
-  </ion-item>
-    
-  <ion-item>
-      <ion-label position="stacked">Bedroom(s)</ion-label>
-      <ion-input></ion-input>
+    <ion-label position="stacked">Description</ion-label>
+    <ion-input type="text" [(ngModel)]="listing.description"></ion-input>
   </ion-item>
 
   <ion-item>
-      <ion-label position="stacked">Bath(s)</ion-label>
-      <ion-input></ion-input>
+    <ion-label position="stacked">Location</ion-label>
+    <ion-input type="text" [(ngModel)]="listing.location"></ion-input>
   </ion-item>
+
 
   <ion-item>
-      <ion-label position="stacked">Price</ion-label>
-      <ion-input></ion-input>
+    <ion-label position="stacked">Price (R per night)</ion-label>
+    <ion-input type="text" [(ngModel)]="listing.price"></ion-input>
   </ion-item>
 
-  <ion-button>List Property</ion-button>
-
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-
-      <ion-tab-button tab="Existing Rentals">
-        <ion-icon name="pin"></ion-icon>
-        <ion-label>Existing Rentals</ion-label>
-        <ion-badge>6</ion-badge>
-      </ion-tab-button>
+  <div align="center">
+    <ion-button color="danger" (click)="createListing(listing)">List Property</ion-button>
+  </div>
   
-      <ion-tab-button tab="Create Rental">
-        <ion-icon name="add-circle"></ion-icon>
-        <ion-label>Create Rental</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="Update Rentals">
-        <ion-icon name="home"></ion-icon>
-        <ion-label>Update Rentals</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="View Rental Details">
-        <ion-icon name="book"></ion-icon>
-        <ion-label>View Rental Details</ion-label>
-      </ion-tab-button>
-
-    </ion-tab-bar>
-
-  </ion-tabs>
 </ion-content>

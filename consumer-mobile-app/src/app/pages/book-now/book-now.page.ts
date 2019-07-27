@@ -5,6 +5,7 @@ import { User } from '../../models/user-model'
 import { Listing } from '../../models/listing-model'
 import { ListingService } from '../../services/listing.service'
 import { BookingService } from '../../services/booking.service'
+import { Booking } from 'src/app/models/booking-model';
 
 @Component({
   selector: 'app-book-now',
@@ -16,6 +17,7 @@ export class BookNowPage implements OnInit {
   public listingId: number;
   public userId: number;
 
+  
   public dateFrom: Date;
   public dateTo: Date;
   public status: string;
@@ -54,20 +56,22 @@ export class BookNowPage implements OnInit {
       dateTo: this.dateTo,
       status: "pending"
     }
+    console.log(this.dateFrom);
+    console.log(this.dateTo);
     this.bookingService.create(booking).then(res => {
+      console.log(booking);
       //const testId = localStorage.getItem('userId');
       //console.log(testId);
 
       this.navCtrl.navigateForward('home', {
         queryParams:  {
-          user: res
+          booking: res
         }
       });
 
     }).catch (err => {
-      this.presentAlert(err);
+        console.log(err);
     });
-
   }
 
 }

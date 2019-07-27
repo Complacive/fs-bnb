@@ -5,31 +5,43 @@
 </ion-header>
 
 <ion-content>
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
+  <div class="ion-padding" align="center">
 
-      <ion-tab-button tab="Existing Rentals">
-        <ion-icon name="pin"></ion-icon>
-        <ion-label>Existing Rentals</ion-label>
-        <ion-badge>6</ion-badge>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="Create Rental">
-        <ion-icon name="add-circle"></ion-icon>
-        <ion-label>Create Rental</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="Update Rentals">
-        <ion-icon name="home"></ion-icon>
-        <ion-label>Update Rentals</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="View Rental Details">
-        <ion-icon name="book"></ion-icon>
-        <ion-label>View Rental Details</ion-label>
-      </ion-tab-button>
+    <div>
+      <ion-button color="danger" (click)="navToCreateRental()">Create New Listing</ion-button>
+    </div>
 
-    </ion-tab-bar>
+    <div>
+      <ion-button color="danger" (click)="navToProfile()">Profile</ion-button>
+    </div>
 
-  </ion-tabs>
+    <div>
+      <ion-button color="danger" (click)="logOff()">Log Out</ion-button>
+    </div>
+
+    <ion-card *ngFor="let listing of providerListings" (click)="navToListingDetails(listing)">
+      <ion-slides pager="true">
+        <ion-slide *ngFor="let img of listing.imgUrl">
+          <img src="{{img}}" />
+        </ion-slide>
+      </ion-slides>
+
+      <ion-card-header>
+        <ion-grid>
+          <ion-row>
+            <ion-col align-self: center>
+              <ion-card-title>{{listing.name}}</ion-card-title>
+              <ion-card-title>{{listing.location}}</ion-card-title>
+              <ion-card-title>R {{listing.price}} per night</ion-card-title>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-header>
+
+      <ion-col push-md align-self: center>
+        <ion-card-title>{{listing.description}}</ion-card-title>
+      </ion-col>
+
+    </ion-card>
+  </div>
 </ion-content>

@@ -1,38 +1,45 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-title>Existing Rentals</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
+  <ion-toolbar>
+    <ion-title>Update Rental</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <p>Current Listings</p>
-    <ion-tabs>
-      <ion-tab-bar slot="bottom">
-  
-        <ion-tab-button tab="Existing Rentals">
-          <ion-icon name="pin"></ion-icon>
-          <ion-label>Existing Rentals</ion-label>
-          <ion-badge>6</ion-badge>
-        </ion-tab-button>
+<ion-content>
+  <div class="ion-padding">
+
+    <div>
+      <ion-button color="danger" (click)="navBackToRentalDetails()">Back to Existing Rentals</ion-button>
+    </div>
+
+    <b>Current Information </b>
+    <p>Property Name: {{listing.name}}</p>
+    <p>Property Location: {{listing.location}}</p>
+    <p>Property Description: {{listing.description}}</p>
+    <p>Property Price: R{{listing.price}}/night</p>
+
+    <b>Update Information</b>
+    <ion-item>
+        <ion-label position="stacked">Property Name</ion-label>
+        <ion-input type="text" [(ngModel)]="listing.name"> </ion-input>
+      </ion-item>
     
-        <ion-tab-button tab="Create Rental">
-          <ion-icon name="add-circle"></ion-icon>
-          <ion-label>Create Rental</ion-label>
-        </ion-tab-button>
+      <ion-item>
+          <ion-label position="stacked">Property Location</ion-label>
+          <ion-input type="text" [(ngModel)]="listing.location"> </ion-input>
+      </ion-item>
+        
+      <ion-item>
+          <ion-label position="stacked">Property Description</ion-label>
+          <ion-input type="text" [(ngModel)]="listing.description"> </ion-input>
+      </ion-item>
     
-        <ion-tab-button tab="Update Rentals">
-          <ion-icon name="home"></ion-icon>
-          <ion-label>Update Rentals</ion-label>
-        </ion-tab-button>
-    
-        <ion-tab-button tab="View Rental Details">
-          <ion-icon name="book"></ion-icon>
-          <ion-label>View Rental Details</ion-label>
-        </ion-tab-button>
+      <ion-item>
+          <ion-label position="stacked">Property Price (R/night)</ion-label>
+          <ion-input type="text" [(ngModel)]="listing.price"> </ion-input>
+      </ion-item>
   
-      </ion-tab-bar>
-  
-    </ion-tabs>
-  </ion-content>
-  
+      <ion-button color="danger" (click)="updateProperty()">Update Property</ion-button>
+  </div>
+
+
+</ion-content>

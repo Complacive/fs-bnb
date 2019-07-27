@@ -24,6 +24,7 @@ app.use("/api/admin", require("./src/api/admin-routes"));
 app.use("/api/listings", require('./src/api/listings-routes'));
 app.use("/api/listingUrl", require('./src/api/listing-imgurl-mapping-routes'));
 app.use("/api/bookings", require('./src/api/booking-routes'));
+
  
 const PORT = process.env.PORT || 5000;
 

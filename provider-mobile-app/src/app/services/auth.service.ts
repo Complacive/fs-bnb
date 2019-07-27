@@ -28,15 +28,16 @@ export class AuthService {
     });
   }
 
-  
+
   registerUser(newUser) {
     return new Promise((resolve, reject) => {
       //const headers = new HttpHeaders();
 
       this.http.post('http://localhost:5000/api/auth/registerProvider', newUser)
       .subscribe(
-        (response) => {
+        (response: any) => {
           console.log('accepting body');
+          localStorage.setItem('userId', response);
           resolve(response);
         },
         (err) => {

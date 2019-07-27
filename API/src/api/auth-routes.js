@@ -82,36 +82,3 @@ router.post('/registerAdmin', (req, res) => {
 })
 
 module.exports = router;
-
-
-/*
-router.post('/login', (req, res) => {
-    // login/register function
-
-    // loop through users
-    // validate email
-    // validate password 
-    // return success or fail
-    const authUser = req.body;
-
-    User.prototype 
-        .getUsers()
-        .then(users => {
-            const dbUser = users.filter (user => {
-                return user.email == authUser.email;
-        });
-        if (dbUser) {
-            if (dbUser[0].password == authUser.password) {
-                res.send(dbUser[0]);
-            } else {
-                res.status(400).send('Incorrect password');
-            }
-        } else {
-            res.status(400).send('User not found');
-        }
-    })
-    .catch(err => {
-        res.status(400).send(err);
-    })
-});
-*/

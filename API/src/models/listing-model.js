@@ -69,6 +69,9 @@ module.exports = class Property {
                     reject(err);
                 } else {
                     resolve(res);
+                    //resolve(res.id);
+                    //resolve(res.insertId);
+                    //console.log(res.insertId);
                 }
             });
         });
@@ -89,12 +92,12 @@ module.exports = class Property {
         });
     };
 
-    // not working
-    updateById(listing, listingId) {
+
+    updateById(listingId, listing) {
         return new Promise((resolve, reject) => {
             mysqlConn.query(
-                "UPDATE user SET listing = ? WHERE id = ?",
-                [listing, listingId],
+                "UPDATE listing SET providerId = ?, name = ?, description = ?, location = ?, price = ? WHERE id = ? ",
+                [listing.providerId, listing.name, listing.description, listing.location, listing.price, listingId],
                 function (err, res) {
                     if (err) {
                         reject(err);

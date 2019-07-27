@@ -59,7 +59,19 @@ router.post('/updateById', function (req, res) {
         })
 });
 
-router.post('/removeById', function (req, res) {
+router.post('/removeByListingId', function (req, res) {
+    listingUrl.prototype
+        .removeByListingId(req.body.listingImgId)
+        .then(listings => {
+            res.send(listings);
+        })
+        .catch(err => {
+            res.status(400).send(err);
+        })
+});
+
+
+router.post('/removeByListingId', function (req, res) {
     listingUrl.prototype
         .removeById(req.body.id)
         .then(listings => {

@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Booking Requests</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <div class="ion-padding" align="center">
+
+    <div>
+      <b>Pending Booking Requests</b>
+      <ion-card *ngFor="let request of pendingBoookingRequests">
+        <ion-card-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col align-self: center>
+                <ion-card-title>{{request.dateFrom}}</ion-card-title>
+                <ion-card-title> to </ion-card-title>
+                <ion-card-title>{{request.dateTo}}</ion-card-title>
+                <ion-button color='danger' (click) = "acceptBooking(request.id)"> Accept </ion-button>
+                <ion-button color='danger' (click) = "rejectBooking(request.id)"> Reject </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-header>
+      </ion-card>
+    </div>
+
+    <div>
+      <b>Accepted Booking Requests</b>
+      <ion-card *ngFor="let request of acceptedBoookingRequests">
+        <ion-card-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col align-self: center>
+                <ion-card-title>{{request.dateFrom}}</ion-card-title>
+                <ion-card-title> to </ion-card-title>
+                <ion-card-title>{{request.dateTo}}</ion-card-title>
+                <ion-button color='danger' (click) = "acceptBooking(request.id)"> Accept </ion-button>
+                <ion-button color='danger' (click) = "rejectBooking(request.id)"> Reject </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-header>
+      </ion-card>
+    </div>
+
+    <div>
+      <b>Rejected Booking Requests</b>
+      <ion-card *ngFor="let request of rejectedBoookingRequests">
+        <ion-card-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col align-self: center>
+                <ion-card-title>{{request.dateFrom}}</ion-card-title>
+                <ion-card-title> to </ion-card-title>
+                <ion-card-title>{{request.dateTo}}</ion-card-title>
+                <ion-button color='danger' (click) = "acceptBooking(request.id)"> Accept </ion-button>
+                <ion-button color='danger' (click) = "rejectBooking(request.id)"> Reject </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-header>
+      </ion-card>
+    </div>
+
+  </div>
+
+</ion-content>

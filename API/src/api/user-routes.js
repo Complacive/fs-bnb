@@ -20,11 +20,6 @@ router.post('/create', function (req, res) {
         .create(req.body)
         .then(users => {
             res.send(users);
-            //User.prototype.getByEmail(user.email).then(dbUser => {
-                //res.send(dbUser);
-            //}).catch(err => {
-                //res.status(400).send(err);
-            //})
         })
         .catch(err => { 
             res.status(400).send(err);

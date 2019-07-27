@@ -16,6 +16,7 @@ export class HomePage {
 
   public user = new User();
   public listings: Array<Listing> = [];
+  public providerListings: Array<Listing> = [];
 
   constructor(
     private navCtrl: NavController,
@@ -28,6 +29,7 @@ export class HomePage {
     this.user.id = +localStorage.getItem('userId');
     console.log(this.user.id);
 
+    // all listings in database
     this.listingService.getAll().then((response: any) => {
       this.listings = response;
       console.log(this.listings);

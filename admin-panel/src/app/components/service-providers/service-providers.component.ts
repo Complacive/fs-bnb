@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceProvider } from '../../models/service-provider-model';
-import { ServiceProviderService } from '../../services/service-provider/service-provider.service'
+import { ServiceProviderService } from '../../services/service-provider.service'
 
 
 @Component({
@@ -10,13 +10,14 @@ import { ServiceProviderService } from '../../services/service-provider/service-
 })
 export class ServiceProvidersComponent implements OnInit {
 
-  serviceProviders: Array<ServiceProvider>;
+  public providers: Array<ServiceProvider> = [];
 
   constructor(
-    private spService: ServiceProviderService
+    private providerService: ServiceProviderService
   ) {
-
-    this.serviceProviders = this.spService.getServiceProviders();
+    this.providerService.getProviders().then((response: any) => {
+      this.providers = response;
+    }).catch(err => alert(err));
 
   }
 

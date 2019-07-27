@@ -9,6 +9,10 @@ const routes: Routes = [
   { path: 'rental-details', loadChildren: './pages/rental-details/rental-details.module#RentalDetailsPageModule' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
+  { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule' },
+  { path: 'booking-requests', loadChildren: './pages/booking-requests/booking-requests.module#BookingRequestsPageModule' },
+  { path: 'create-rental-images', loadChildren: './pages/create-rental-images/create-rental-images.module#CreateRentalImagesPageModule' },
+  { path: 'delete-rental', loadChildren: './pages/delete-rental/delete-rental.module#DeleteRentalPageModule' },
 ];
 
 @NgModule({

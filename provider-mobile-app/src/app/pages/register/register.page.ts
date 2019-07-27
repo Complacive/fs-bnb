@@ -45,6 +45,7 @@ export class RegisterPage implements OnInit {
       password: this.password,
     }
     this.authService.registerUser(newProvider).then(res => {
+      console.log(localStorage.getItem('userId'));
       this.navCtrl.navigateForward('existing-rentals', {
         queryParams:  {
           user: res
@@ -54,7 +55,6 @@ export class RegisterPage implements OnInit {
       this.presentAlert(err);
     });
   }
-
 
   backToLogin() {
     this.navCtrl.navigateBack('login');

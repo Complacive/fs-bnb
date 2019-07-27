@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Create Rental Images</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+    <ion-item>
+      <ion-label position="stacked">Image URL</ion-label>
+      <ion-input type="text" [(ngModel)]="imageURL"></ion-input>
+    </ion-item>
+  
+    <div align="center">
+      <ion-button color="danger" (click)="insertImage(image)">Confirm Listing</ion-button>
+    </div>
+    
+  </ion-content>

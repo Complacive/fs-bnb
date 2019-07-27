@@ -2,7 +2,7 @@ const mysqlConn = require('../database/database');
 
 module.exports = class Booking {
 
-    constructor(bookingId, listingId, userId, 
+    constructor(bookingId, listingId, userId,
         dateFrom, dateTo, status) {
         this.id = bookingId;
         this.listingId = listingId;
@@ -15,6 +15,21 @@ module.exports = class Booking {
     get() {
         return new Promise((resolve, reject) => {
             mysqlConn.query("SELECT * FROM bookings", (err, res) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(res);
+                }
+            });
+        });
+    };
+
+    getByListingId(listingId) {
+        return new Promise((resolve, reject) => {
+            mysqlConn.query("Select * from bookings where listingId = ? ", listingId, function (
+                err,
+                res
+            ) {
                 if (err) {
                     reject(err);
                 } else {
@@ -51,6 +66,23 @@ module.exports = class Booking {
         });
     };
 
+    updateStatus(bookingId, booking) {
+        return new Promise((resolve, reject) => {
+            mysqlConn.query(
+                "UPDATE bookings SET status = ? WHERE id = ? ",
+                [booking.status, bookingId],
+                function (err, res) {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(res);
+                    }
+                }
+            );
+        });
+    }
+
+    /*
     // not working
     updateById(booking, bookingId) {
         return new Promise((resolve, reject) => {
@@ -67,6 +99,7 @@ module.exports = class Booking {
             );
         });
     };
+    */
 
     removeById(bookingId) {
         return new Promise((resolve, reject) => {

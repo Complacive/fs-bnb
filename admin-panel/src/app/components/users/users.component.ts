@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { User } from '../../models/user-model';
-import { UserService } from '../../services/user/user.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-users',
@@ -10,15 +10,17 @@ import { UserService } from '../../services/user/user.service';
 })
 export class UsersComponent implements OnInit {
 
-  users: Array<User>;
+  public users: Array<User> = [];
 
   constructor(
     private userService: UserService
-  ) {
-    this.users = this.userService.getUsers();
+  ) { 
+    this.userService.getUsers().then((response: any) => {
+      this.users = response;
+    }).catch(err => alert(err));
   }
 
-  ngOnInit() {
-  }
+  ngOnInit(
+  ) {}
 
 }

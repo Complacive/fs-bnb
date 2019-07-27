@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Delete Rental</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="ion-padding" align="center">
+    <p>Property Name: {{listing.name}}</p>
+    <p>Property Location: {{listing.location}}</p>
+    <p>Property Description: {{listing.description}}</p>
+    <p>Property Price: R{{listing.price}}/night</p>
+
+    <div>
+      <ion-button color="danger" (click)="deleteListing()">Delete Listing</ion-button>
+    </div>
+
+    <div>
+      <ion-button color="danger" (click)="backToRentalDetails()">Back to Listing Details</ion-button>
+    </div>
+
+    <ion-slides pager="true">
+      <ion-slide *ngFor="let img of listingImageUrl">
+        <img src="{{img}}" />
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+</ion-content>

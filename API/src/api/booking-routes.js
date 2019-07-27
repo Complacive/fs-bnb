@@ -15,6 +15,17 @@ router.get('/get', function (req, res) {
         });
 });
 
+router.post('/getByListingId', function (req, res) {
+    Booking.prototype
+        .getByListingId(req.body.listingId)
+        .then(bookings => {
+            res.send(bookings);
+        })
+        .catch(err => {
+            res.status(400).send(err);
+        });
+});
+
 router.post('/create', function (req, res) {
     Booking.prototype
         .create(req.body)
@@ -35,6 +46,17 @@ router.post('/getById', function (req, res) {
         .catch(err => {
             res.status(400).send(err);
         });
+});
+
+router.patch('/updateStatus', function (req, res) {
+    Booking.prototype
+        .updateStatus(req.query.id, req.body)
+        .then(bookings => {
+            res.send(bookings);
+        })
+        .catch(err => {
+            res.status(400).send(err);
+        })
 });
 
 router.post('/updateById', function (req, res) {

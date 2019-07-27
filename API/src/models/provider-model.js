@@ -38,7 +38,7 @@ module.exports = class Provider {
         if (err) {
           reject(err);
         } else {
-          resolve(newProvider);
+          resolve(res.insertId);
         }
       });
     });
