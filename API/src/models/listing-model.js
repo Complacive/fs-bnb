@@ -11,19 +11,6 @@ module.exports = class Property {
         this.location = listingLocation;
         this.price = listingPrice;
     }
-    /*
-    get() {
-        return new Promise((resolve, reject) => {
-            mysqlConn.query("SELECT * FROM listing", (err, res) => {
-                if (err) {
-                    reject(err);
-                } else {
-                    resolve(res);
-                }
-            });
-        });
-    };
-    */
 
     get() {
         return new Promise((resolve, reject) => {

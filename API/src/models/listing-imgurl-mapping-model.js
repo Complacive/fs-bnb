@@ -66,19 +66,15 @@ module.exports = class ListingImgUrl {
     });
   };
 
-  // id, firstName, lastName, role, email, password
-  // not working
-  updateById(userId, user) {
+  // id, listingImgId, imageUrl
+  updateById(mappingId, mapping) {
     return new Promise((resolve, reject) => {
       mysqlConn.query(
-        "UPDATE listing_imgurl_mapping SET firstName = ?, lastName = ?, role = ?, email = ?, password = ?, WHERE id = ?",
+        "UPDATE listing_imgurl_mapping SET listingImgId = ?, imageUrl = ?,  WHERE id = ?",
         [
-          user.firstName,
-          user.lastName,
-          user.role,
-          user.email,
-          user.password, 
-          userId
+          mapping.listingImageId,
+          mapping.imageUrl,
+          mappingId
         ],
         function (err, res) {
           if (err) {

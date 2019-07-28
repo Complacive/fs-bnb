@@ -83,13 +83,19 @@ module.exports = class Booking {
     }
 
     
-    /*
-    // not working
-    updateById(bookingId, bookingId) {
+    //id, listingId, userId, dateFrom, dateTo, status
+    updateById(bookingId, booking) {
         return new Promise((resolve, reject) => {
             mysqlConn.query(
-                "UPDATE user SET bookings = ? WHERE id = ?",
-                [listing, listingId],
+                "UPDATE bookings SET listingId = ?, userId = ?, dateFrom = ?, dateTo = ?, status= ?, WHERE id = ?",
+                [
+                  booking.listingId,
+                  booking.userId,
+                  user.dateFrom,
+                  user.dateTo,
+                  user.status, 
+                  bookingId
+                ],
                 function (err, res) {
                     if (err) {
                         reject(err);

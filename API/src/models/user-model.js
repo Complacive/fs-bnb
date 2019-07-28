@@ -76,7 +76,6 @@ module.exports = class User {
   };
 
   // id, firstName, lastName, role, email, password
-  // not working
   updateById(userId, user) {
     return new Promise((resolve, reject) => {
       mysqlConn.query(

@@ -76,4 +76,13 @@ export class BookingRequestsPage implements OnInit {
     })
   }
 
+  backToListingDetails() {
+    this.navCtrl.navigateBack("rental-details", {
+      queryParams: {
+        listingId: this.listingId,
+        userId: this.providerId
+      }
+    });
+  }
+
 }

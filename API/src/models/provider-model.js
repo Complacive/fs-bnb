@@ -59,12 +59,18 @@ module.exports = class Provider {
     });
   };
 
-  // not working
-  updateById(provider, providerId) {
+  updateById(providerId, provider) {
     return new Promise((resolve, reject) => {
       mysqlConn.query(
-        "UPDATE user SET provider = ? WHERE id = ?",
-        [provider, providerId],
+        "UPDATE user SET firstName = ?, lastName = ?, role = ?, email = ?, password = ?, WHERE id = ?",
+        [
+          provider.firstName,
+          provider.lastName,
+          provider.role,
+          provider.email,
+          provider.password,
+          providerId
+        ],
         function (err, res) {
           if (err) {
             reject(err);
@@ -75,6 +81,7 @@ module.exports = class Provider {
       );
     });
   };
+
 
   removeById(providerId) {
     return new Promise((resolve, reject) => {
