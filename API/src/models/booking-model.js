@@ -106,8 +106,6 @@ module.exports = class Booking {
             );
         });
     };
-    */
-
 
     removeById(bookingId) {
         return new Promise((resolve, reject) => {
