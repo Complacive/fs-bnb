@@ -82,9 +82,10 @@ module.exports = class Booking {
         });
     }
 
+    
     /*
     // not working
-    updateById(booking, bookingId) {
+    updateById(bookingId, bookingId) {
         return new Promise((resolve, reject) => {
             mysqlConn.query(
                 "UPDATE user SET bookings = ? WHERE id = ?",
@@ -100,6 +101,7 @@ module.exports = class Booking {
         });
     };
     */
+
 
     removeById(bookingId) {
         return new Promise((resolve, reject) => {
