@@ -7,7 +7,7 @@
 | Consumer mobile app | Property Detail    | fs-bnb\consumer-mobile-app\src\app\pages\listing-details       
 | Consumer mobile app | Booking            | fs-bnb\consumer-mobile-app\src\app\pages\book-now 
 | Provider mobile app | Login              | fs-bnb\provider-mobile-app\src\app\pages\login              
-| Provider mobile app | Registration       | fs-bnb\provider-mobile-app\src\app\pages\regiser  
+| Provider mobile app | Registration       | fs-bnb\provider-mobile-app\src\app\pages\register 
 | Provider mobile app | User Profile       | fs-bnb\provider-mobile-app\src\app\pages\profile                 
 | Provider mobile app | List of Properties | fs-bnb\provider-mobile-app\src\app\pages\existing-rentals     
 | Provider mobile app | List of Bookings   | fs-bnb\provider-mobile-app\src\app\pages\booking-requests         
