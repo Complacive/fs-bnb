@@ -44,4 +44,8 @@ export class CreateRentalPage implements OnInit {
     });
   }
 
+  navBackToExistingListings() {
+    this.navCtrl.navigateBack('existing-rentals');
+  }
+
 }
