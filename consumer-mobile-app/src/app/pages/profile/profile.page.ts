@@ -38,5 +38,9 @@ export class ProfilePage implements OnInit {
     this.navCtrl.navigateBack('home');
   }
 
+  logOut() {
+    this.authService.logOut();
+    this.navCtrl.navigateRoot('login');
+  }
 
 }

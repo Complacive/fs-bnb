@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { NavController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
@@ -15,15 +16,17 @@ export class ProfilePage implements OnInit {
   public email: string;
   public user: any;
 
+
+
   constructor(
     private userService: UserService,
     private authService: AuthService,
     private navCtrl: NavController,
+
   ) { }
-  
 
   ngOnInit() {
-    this.userService.getById(+localStorage.getItem('userId')).then((response: any ) => {
+    this.userService.getById(+localStorage.getItem('userId')).then((response: any) => {
       this.firstName = response[0].firstName;
       this.lastName = response[0].lastName;
       this.email = response[0].email;
@@ -33,8 +36,9 @@ export class ProfilePage implements OnInit {
   }
 
   backHome() {
-    // This should navigate to the register page:
     this.navCtrl.navigateBack('existing-rentals');
   }
+
+ 
 
 }

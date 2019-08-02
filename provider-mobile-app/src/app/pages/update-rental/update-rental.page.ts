@@ -11,7 +11,7 @@ import { ListingService } from '../../services/listing.service'
   styleUrls: ['./update-rental.page.scss'],
 })
 export class UpdateRentalPage implements OnInit {
-
+  
   public listing: Listing = new Listing();
 
   public listingId: number;

@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'booking-requests', loadChildren: './pages/booking-requests/booking-requests.module#BookingRequestsPageModule' },
   { path: 'create-rental-images', loadChildren: './pages/create-rental-images/create-rental-images.module#CreateRentalImagesPageModule' },
   { path: 'delete-rental', loadChildren: './pages/delete-rental/delete-rental.module#DeleteRentalPageModule' },
+  { path: 'upload', loadChildren: './modals/upload/upload.module#UploadPageModule' },
 ];
 
 @NgModule({

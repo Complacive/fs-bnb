@@ -1,7 +1,9 @@
 const express = require ('express');
 const app = express();
 const cors = require('cors');
+
 //const jwtAuth = require(./src)
+const path = require('path');
 
 // Allows access from device
 app.use(cors());
@@ -24,6 +26,9 @@ app.use("/api/admin", require("./src/api/admin-routes"));
 app.use("/api/listings", require('./src/api/listings-routes'));
 app.use("/api/listingUrl", require('./src/api/listing-imgurl-mapping-routes'));
 app.use("/api/bookings", require('./src/api/booking-routes'));
+
+app.use("/uploads", express.static(path.join(__dirname, "./uploads")));
+
 
  
 const PORT = process.env.PORT || 5000;

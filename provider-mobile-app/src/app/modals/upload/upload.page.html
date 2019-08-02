@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>upload</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form style="position:relative; text-align:center; margin-top:25%;" #form="ngForm" (ngSubmit)="onSubmit()">
+
+    <input style="display: none" #fileInput type="file" name="avatar" (change)="onFileChange($event)" />
+ 
+    <div>
+      <div *ngIf="fileAdded" class="image image-container" (click)="expandedImage = image.image">
+        <img class="img-upload" [src]="image">
+      </div>
+ 
+      <div *ngIf="!fileAdded && user.imgUrl != null" class="image image-container" title="Add Image"
+        (click)="fileInput.click()">
+        <img class="img-upload" [src]="user.imgUrl">
+      </div>
+ 
+      <div *ngIf="!fileAdded && user.imgUrl == null" class="image image-container" title="Profile Image"
+        (click)="fileInput.click()">
+        <ion-icon name="add"></ion-icon>
+      </div>
+    </div>
+
+    <ion-button [disabled]="!fileAdded" style="width:85%" type="submit">Upload</ion-button>
+ 
+</ion-content>

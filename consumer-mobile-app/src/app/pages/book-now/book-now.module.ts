@@ -6,10 +6,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { BookNowPage } from './book-now.page';
+import { AuthGuard } from '../../auth/auth.guard'
 
 const routes: Routes = [
   {
     path: '',
+    canActivate: [AuthGuard],
     component: BookNowPage
   }
 ];

@@ -14,15 +14,12 @@ export class AuthService {
 
   login(authUser) {
     return new Promise((resolve, reject) => {
-      //console.log(authUser);
+      console.log(authUser);
       const headers = new HttpHeaders();
 
       this.http.post('http://localhost:5000/api/auth/login', authUser, { headers }).subscribe((response: any) => {
-        //console.log(response.id);
+        localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('userId', response.id);
-        //localStorage.setItem('userFirstName', response.firstName);
-        //localStorage.setItem('userLastName', response.lastName);
-        //localStorage.setItem('userEmail', response.email);
         resolve(response);
       },
         (err) => {
@@ -31,6 +28,10 @@ export class AuthService {
         });
 
     });
+  }
+
+  logOut() {
+    localStorage.setItem('isLoggedIn', 'false');
   }
 
   registerUser(newUser) {

@@ -6,10 +6,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { ProfilePage } from './profile.page';
+import { AuthGuard } from '../../auth/auth.guard'
 
 const routes: Routes = [
   {
     path: '',
+    canActivate: [AuthGuard],
     component: ProfilePage
   }
 ];

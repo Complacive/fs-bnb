@@ -74,13 +74,4 @@ export class BookNowPage implements OnInit {
     });
   }
 
-  navBackToListingDetails() {
-    this.navCtrl.navigateBack("listing-details", {
-      queryParams: {
-        listingId: this.listingId,
-        userId: this.userId
-      }
-    });
-  }
-
 }

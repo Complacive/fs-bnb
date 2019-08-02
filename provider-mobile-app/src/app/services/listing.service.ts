@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Listing } from '../models/listing-model'
 import { AlertController, NavController } from '@ionic/angular';
 import { BookingService } from "../services/booking.service"
